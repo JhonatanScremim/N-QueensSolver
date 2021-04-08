@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N-QueensSolver", "N-QueensSolver\N-QueensSolver.csproj", "{A87498CD-B854-452E-8A25-2CFDB37A372C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A87498CD-B854-452E-8A25-2CFDB37A372C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A87498CD-B854-452E-8A25-2CFDB37A372C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A87498CD-B854-452E-8A25-2CFDB37A372C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A87498CD-B854-452E-8A25-2CFDB37A372C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD8F9BB8-9540-4193-957C-F45B412717BA}
+	EndGlobalSection
+EndGlobal
