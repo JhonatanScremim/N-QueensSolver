@@ -6,10 +6,11 @@ namespace N_QueensSolver
     {
         static void Main(string[] args)
         {
-            bool[,] board = InitializeBoard(8);
-            DrawTheBoard(board);
-            Console.WriteLine("Total de colisões: " + CalculateCollisions(board));
-            Console.ReadKey();
+            umnomeai ue = new umnomeai();
+            //bool[,] board = InitializeBoard(8);
+            //DrawTheBoard(board);
+            //Console.WriteLine("Total de colisões: " + CalculateCollisions(board));
+            //Console.ReadKey();
         }
 
         #region Iniciar tabuleiro
@@ -20,7 +21,7 @@ namespace N_QueensSolver
 
             for (int i = 0; i < size; i++)
             {
-                int randomSquare = rnd.Next(size); 
+                int randomSquare = rnd.Next(size);
                 for (int j = 0; j < size; j++)
                 {
                     if (j != randomSquare)
