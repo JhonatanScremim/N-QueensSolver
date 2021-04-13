@@ -8,15 +8,19 @@ namespace N_QueensSolver
     {
         static void Main(string[] args)
         {
-            for(int i = 0; i < 20; i++)
+            for (int i = 0; i < 20; i++)
             {
                 Console.WriteLine("Novo tabuleiro:");
 
                 bool[,] board = InitializeBoard(8);
+                int colisions = CalculateCollisions(board);
 
                 DrawTheBoard(board);
+                Console.WriteLine("Total colisões: " + colisions + "\n");
 
-                int time = ApplySimulatedAnnealing(board, 35, 1.03, 35, 1.005);
+                int time = ApplySimulatedAnnealing(board, 30, 1.5, 30, 2.0);
+
+                Console.WriteLine("\n"+ "Finalizado !");
 
                 DrawTheBoard(board);
                 Console.WriteLine(") Tempo decorrido: " + time + " ms");
@@ -130,10 +134,9 @@ namespace N_QueensSolver
             for (double temperature = initialTemp; (temperature > 0) && (CalculateCollisions(board) != 0); temperature -= coolingFactor)
             {
                 Console.WriteLine("Temperatura : " + temperature + ", total de colisões: " + CalculateCollisions(board));
-                //DrawTheBoard(board);
+
                 for (int k = 0; k < currentStabilizer; k++)
                 {
-                    //bool[,] temporaryBoard = board.Clone() as bool[,];
                     bool[,] temporaryBoard = new bool[size, size];
                     for (int i = 0; i < size; i++)
                     {
@@ -221,16 +224,12 @@ namespace N_QueensSolver
                     }
                     temporaryBoard[indexI, indexJ] = true;
 
-                    //DrawTheBoard(temporaryBoard);
-
-
                     double delta = CalculateCollisions(board) - CalculateCollisions(temporaryBoard);
                     double probability = Math.Exp(delta / temperature);
 
                     double rand = rnd.NextDouble();
-                    //Console.Clear();
 
-                    if (delta > 0)
+                    if (delta > 0 || rand <= probability)
                     {
                         for (int i = 0; i < size; i++)
                         {
@@ -238,16 +237,6 @@ namespace N_QueensSolver
                             {
                                 board[i, j] = temporaryBoard[i, j];
 
-                            }
-                        }
-                    }
-                    else if (rand <= probability)
-                    {
-                        for (int i = 0; i < size; i++)
-                        {
-                            for (int j = 0; j < size; j++)
-                            {
-                                board[i, j] = temporaryBoard[i, j];
                             }
                         }
                     }
